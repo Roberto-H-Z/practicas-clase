@@ -18,15 +18,15 @@
               <ion-card-content>
                 <ion-item>
                   <ion-label position="floating">Correo electrónico</ion-label>
-                  <ion-input type="email" required></ion-input>
+                  <ion-input [(ngModel)]="email" required></ion-input>
                 </ion-item>
 
                 <ion-item>
                   <ion-label position="floating">Contraseña</ion-label>
-                  <ion-input type="password" required></ion-input>
+                  <ion-input [(ngModel)]="password" type="password" required></ion-input>
                 </ion-item>
 
-                <ion-button routerLink="/inicio" expand="block" color="primary" class="mt-2" >
+                <ion-button expand="block" color="primary" class="mt-2" (click)="presentToast('top')" >
                   Iniciar Sesión
                 </ion-button>
 
