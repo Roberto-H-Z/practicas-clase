@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form >
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Registro</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  
+    <div class="ion-padding">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Crear Cuenta</ion-card-title>
+          <ion-card-subtitle>Complete los campos para registrarse</ion-card-subtitle>
+        </ion-card-header>
+  
+        <ion-card-content>
+          <!-- (ngSubmit)="onRegister()" -->
+          <form (ngSubmit)= "register(registerForm)" #registerForm="ngForm" >
+            <ion-item>
+              <ion-label position="floating">Nombre Completo</ion-label>
+              <ion-input type="text" required [(ngModel)]="name" name="name"></ion-input>
+            </ion-item>
+  
+            <ion-item>
+              <ion-label position="floating"></ion-label>
+              <ion-input 
+              type="email"
+              label="Email"
+              labelPlacement="floating"
+              helperText="Enter a valid email"
+              errorText="Invalid email"
+              email
+              ></ion-input>
+            </ion-item>
+  
+            <ion-item>
+              <ion-label position="floating">Contraseña</ion-label>
+              <ion-input type="password" required [(ngModel)]="password" name="password"></ion-input>
+            </ion-item>
+  
+            <ion-item>
+              <ion-label position="floating">Confirmar Contraseña</ion-label>
+              <ion-input type="password" required [(ngModel)]="confirmPassword" name="confirmPassword"></ion-input>
+            </ion-item>
+  
+            <ion-button [disabled]="registerForm.invalid" expand="block" type="submit" color="primary">Registrar</ion-button>
+          </form>
+  
+          <ion-button fill="clear" color="secondary" routerLink="/login">
+            ¿Ya tienes una cuenta? Inicia sesión aquí
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </form>
+</ion-content>
